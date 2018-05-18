@@ -16,4 +16,4 @@ while 4 >  2 :
 	print "ip of client : ",data[1][0]
 	p=raw_input("enter reply msg")
 	
-	s.sendto(p,Data[1])
+	s.sendto(p,data[1])
