@@ -3,9 +3,9 @@
 import  socket,time
 from collections import Counter
 import matplotlib.pyplot as plt
-import Tkinter
+import backports.functools_lru_cache
  
-rec_ip="192.168.0.104"
+rec_ip="192.168.43.84"
 myport=8888
 #                 ipv4       ,  for UDP   
 #   only  for rec                      
@@ -14,37 +14,30 @@ s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 #  now connecting ip  and port 
 s.bind((rec_ip,myport)) 
 #  buffer size 
+
+
+def func():
+	count_v=Counter(list)
+	values=count_v.values()
+	keys=count_v.keys()
+	plt.bar(keys,values,color='r')
+	plt.grid(True,color='b')
+	plt.show()
+
+
 list=[]
-t=time.time()+10
-while time.time()<t:
+t=0
+
+while t<10:
 	data=s.recvfrom(1000)
-	print "data from client : ",data[0]
 	list.append(data[0])
 	print list 
-
-dist=Counter(list)                                                                             
-count_v= dist.values()
-keys_k= dist.keys()
-
-print dist
-print count_v
-print  keys_k
-
-#print "value type :",type(count_v)
-#print  "keys type :",type(keys_k)
-
-plt.plot(keys_k,count_v,label="string",color='r')
-plt.bar(keys_k,count_v)
-plt.show()
-
-time.sleep(4)
+	if t==5:
+		func()
+	t=t+1
 
 
+func()
 		
-	
-	
-		
-	#print "ip of client : ",data[1][0]
-	#p=raw_input("enter reply msg")
-	#s.sendto(p,Data[1])'''
+
 	                      									

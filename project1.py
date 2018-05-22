@@ -102,51 +102,19 @@ if ch =='5':
 		for link in soup.find_all('img'):
 			print (link.get('src'))'''
 #---------------------------------------------------------------------------
+
 if ch == '6' :
-	s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-		
 	
-	ip_domain=input("enter domain name")
-	
-	#host_ip=socket.gethostbyname(ip_domain)
-	for i in ip_domain:
-		
-		all_ip=s.connect((ip_domain))
-		#ip_add=socket.gethostbyname(socket.gethostname())
-		print (ip_add)
-        
 	#ip_add=socket.gethostbyname(socket.gethostname())
 	#print ("ip address :",ip_add)
 
 
-#--------------------------------------------------------------------------
-
-if ch == '7':
-	
-	search_data2= input("enter data : ")
-	final_data3=search_data2.strip()
-	#  above removing  leading and trailing space 
-	done_data3=final_data3.split()
-
-	for i in done_data3:
-
-		r=requests.get("https://myaccount.google.com/search"+i)
-		data=r.content	
-		#print (data)	
-
-
-		soup=BeautifulSoup(data,'html.parser')
-		for link in soup.find_all('email'):
-				print (link.get('href'))
 
 
 
 
-#-----------------------------------------------------------------------------
-'''
-if ch == '7':
 
 
-	print((([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")] or [[(s.connect(("8.8.8.8", 53)), 		s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]]) + ["no IP found"])[0])
-'''
+
+
 
